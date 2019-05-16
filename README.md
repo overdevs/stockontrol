@@ -7,7 +7,8 @@
     - CRUD Funcionários [area de ADM].
     - CRUD Fornecedores [area de ADM].
     - CRUD Produtos [area de Func].
-<br/>
+<br>
+
 ## 🚀 Design Ideas: 
 - <b>TEMA: ESCURO!</b> Ninguém gosta de claridade.
 - Material Design.
