@@ -2,7 +2,6 @@
 <i>Sua solução para um <b>controle de estoque</b> sofisticado e eficiente.</i>
 
 - <b>TEMA:</b> Classificados (CRUD de Usuários, Produtos, Controle de Estoque).
-- <b>LIBRARY UTILIZADA</b>: JFoenix.
 - <b>FUNCIONALIDADES</b>: 
     - CRUD Funcionários [area de ADM].
     - CRUD Fornecedores [area de ADM].
@@ -11,7 +10,6 @@
 
 ## 🚀 Design Ideas: 
 - <b>TEMA: ESCURO!</b> Ninguém gosta de claridade.
-- Material Design.
 - UI com o mínimo de componentes (Quando mais clean, melhor).
 <br/>
 
