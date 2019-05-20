@@ -26,5 +26,26 @@ namespace Stockontrol.Controllers
 
             return View();
         }
+
+        public ActionResult Estoque()
+        {
+            ViewBag.Message = "Estoque page";
+
+            return View();
+        }
+
+        public ActionResult Funcionarios()
+        {
+            ViewBag.Message = "Funcionarios page";
+
+            return View();
+        }
+
+        public ActionResult Fornecedores()
+        {
+            ViewBag.Message = "Fornecedores page";
+
+            return View();
+        }
     }
 }
