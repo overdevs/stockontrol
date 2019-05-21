@@ -18,7 +18,7 @@
 - [x] Modelar Classes.
 ```
 Funcionário:
-    - id, Nome, CPF, Telefone, Endereço, Data de Nascimento.
+    - id, Nome, CPF, Telefone, Endereço, Data de Nascimento, Salário.
 Fornecedores:
     - id, Nome, CNPJ, Telefone, Endereço.
 Produtos:
@@ -27,3 +27,4 @@ Produtos:
 - [x] Modelar Banco de Dados.
 - [ ] Modelar Views.
 - [ ] Aplicar a lógica de negócio.
+
