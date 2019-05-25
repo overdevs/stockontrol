@@ -7,7 +7,6 @@ namespace Stockontrol.Models
 {
     public class Produto
     {
-        // id, Nome, Categoria, Preço, Quantidade, {idFornecedor}.
         public long Id { get; set; }
         public string Nome { get; set; }
         public string Categoria { get; set; }
