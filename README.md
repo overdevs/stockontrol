@@ -17,12 +17,12 @@
 - [x] Encontrar Framework pra se basear.
 - [x] Modelar Classes.
 ```
-Funcionário:
-    - id, Nome, CPF, Telefone, Endereço, Data de Nascimento, Salário.
+Usuários:
+    - id, Nome, Senha.
 Fornecedores:
     - id, Nome, CNPJ, Telefone, Endereço.
-Produtos:
-    - id, Nome, Categoria, Preço, Quantidade, {idFornecedor}.
+Estoque:
+    - id, Nome, Categoria, Marca, Preço, Quantidade, {idFornecedor}.
 ```
 - [x] Modelar Banco de Dados.
 - [ ] Modelar Views.
