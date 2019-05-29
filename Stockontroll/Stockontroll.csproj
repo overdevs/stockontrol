@@ -171,10 +171,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DAO\StockontrolContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Estoque.cs" />
+    <Compile Include="Migrations\201905290548127_fixingDatabase.cs" />
+    <Compile Include="Migrations\201905290548127_fixingDatabase.Designer.cs">
+      <DependentUpon>201905290548127_fixingDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905290551337_teste.cs" />
+    <Compile Include="Migrations\201905290551337_teste.Designer.cs">
+      <DependentUpon>201905290551337_teste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,7 +207,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905290548127_fixingDatabase.resx">
+      <DependentUpon>201905290548127_fixingDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905290551337_teste.resx">
+      <DependentUpon>201905290551337_teste.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>

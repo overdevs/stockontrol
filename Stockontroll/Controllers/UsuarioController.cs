@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Stockontroll.Models;
+using Stockontroll.DAO;
 
 namespace Stockontroll.Controllers
 {
     public class UsuarioController : Controller
     {
-        private UsuarioDBContext db = new UsuarioDBContext();
+        private StockontrolContext db = new StockontrolContext();
 
         // GET: Usuario
         public ActionResult Index()

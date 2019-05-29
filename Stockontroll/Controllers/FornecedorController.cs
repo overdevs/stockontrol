@@ -7,17 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Stockontroll.Models;
+using Stockontroll.DAO;
 
 namespace Stockontroll.Controllers
 {
     public class FornecedorController : Controller
     {
-        private FornecedorDBContext db = new FornecedorDBContext();
+        private StockontrolContext db = new StockontrolContext();
 
         // GET: Fornecedor
         public ActionResult Index()
         {
-            return View(db.Fornecedors.ToList());
+            return View(db.Fornecedores.ToList());
         }
 
         // GET: Fornecedor/Details/5
@@ -27,7 +28,7 @@ namespace Stockontroll.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = db.Fornecedors.Find(id);
+            Fornecedor fornecedor = db.Fornecedores.Find(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace Stockontroll.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Fornecedors.Add(fornecedor);
+                db.Fornecedores.Add(fornecedor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace Stockontroll.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = db.Fornecedors.Find(id);
+            Fornecedor fornecedor = db.Fornecedores.Find(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace Stockontroll.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fornecedor fornecedor = db.Fornecedors.Find(id);
+            Fornecedor fornecedor = db.Fornecedores.Find(id);
             if (fornecedor == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace Stockontroll.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Fornecedor fornecedor = db.Fornecedors.Find(id);
-            db.Fornecedors.Remove(fornecedor);
+            Fornecedor fornecedor = db.Fornecedores.Find(id);
+            db.Fornecedores.Remove(fornecedor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
