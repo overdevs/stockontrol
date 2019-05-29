@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201905290551337_teste.Designer.cs">
       <DependentUpon>201905290551337_teste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905290606576_fixingForeignKeys.cs" />
+    <Compile Include="Migrations\201905290606576_fixingForeignKeys.Designer.cs">
+      <DependentUpon>201905290606576_fixingForeignKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905290551337_teste.resx">
       <DependentUpon>201905290551337_teste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905290606576_fixingForeignKeys.resx">
+      <DependentUpon>201905290606576_fixingForeignKeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

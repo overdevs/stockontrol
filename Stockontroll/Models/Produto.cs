@@ -14,6 +14,6 @@ namespace Stockontroll.Models
         public float Preco { get; set; }
         public int Quantidade { get; set; }
 
-        public Fornecedor fornecedor { get; set; }
+        public int fornecedorId { get; set; }
     }
 }

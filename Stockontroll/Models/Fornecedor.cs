@@ -11,6 +11,7 @@ namespace Stockontroll.Models
         public string Nome { get; set; }
         public string CNPJ { get; set; }
         public string Telefone { get; set; }
-        public Endereco endereco { get; set; }
+
+        public int enderecoId { get; set; }
     }
 }
