@@ -170,6 +170,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAO\StockontrolContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,6 +205,11 @@
     <Content Include="Views\Fornecedor\Details.cshtml" />
     <Content Include="Views\Fornecedor\Edit.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Produto\Create.cshtml" />
+    <Content Include="Views\Produto\Delete.cshtml" />
+    <Content Include="Views\Produto\Details.cshtml" />
+    <Content Include="Views\Produto\Edit.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

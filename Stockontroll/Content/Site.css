@@ -70,6 +70,7 @@ body {
     transition: all 0.3s ease;
 }
 
+
 /*----------------page-wrapper----------------*/
 
 .page-wrapper {
@@ -106,10 +107,11 @@ body {
     top: 10px;
     border-radius: 0 4px 4px 0px;
     transition-delay: 0.3s;
+    z-index: 1050;
 }
 
 .page-wrapper.toggled #show-sidebar {
-    left: -40px;
+    left: -60px;
 }
 /*----------------sidebar-wrapper----------------*/
 

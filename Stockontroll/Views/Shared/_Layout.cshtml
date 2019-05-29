@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Stockontrol</title>
 
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -47,23 +47,23 @@
                 <div class="sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>Extra</span>
+                            <span>Navegação</span>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index", "Estoque")">
-                                <i class="fa fa-book"></i>
-                                <span>Estoque</span>
+                            <a href="@Url.Action("Index", "Produto")">
+                                <i class="fas fa-book"></i>
+                                <span>Produtos</span>
                             </a>
                         </li>
                         <li>
                             <a href="@Url.Action("Index", "Fornecedor")">
-                                <i class="fa fa-calendar"></i>
+                                <i class="fas fa-calendar"></i>
                                 <span>Fornecedores</span>
                             </a>
                         </li>
                         <li>
                             <a href="@Url.Action("Index", "Usuario")">
-                                <i class="fa fa-folder"></i>
+                                <i class="fas fa-user-friends"></i>
                                 <span>Usuarios</span>
                             </a>
                         </li>
@@ -73,9 +73,9 @@
             </div>
         </nav>
         <!-- sidebar-wrapper  -->
-        <main class="page-content">
+        <main class="page-content pt-3">
 
-            <div class="container-fluid">
+            <div class="container-fluid pt-5">
                 @RenderBody()
             </div>
 
@@ -85,7 +85,7 @@
 
 
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script>
         jQuery(function ($) {
@@ -118,10 +118,6 @@
             $("#show-sidebar").click(function () {
                 $(".page-wrapper").addClass("toggled");
             });
-
-
-
-
         });
     </script>
 </body>
