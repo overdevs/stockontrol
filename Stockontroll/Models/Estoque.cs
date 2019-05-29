@@ -14,19 +14,6 @@ namespace Stockontroll.Models
         public float Preco { get; set; }
         public int Quantidade { get; set; }
 
-        public long idFornecedor { get; set; }
-    }
-
-    public class EstoqueDBContext : DbContext
-    {
-        DbSet<Estoque> Estoque { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            base.OnModelCreating(modelBuilder);
-        }
-        
+        public Fornecedor fornecedor { get; set; }
     }
 }

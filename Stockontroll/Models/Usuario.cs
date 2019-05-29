@@ -9,18 +9,7 @@ namespace Stockontroll.Models
         public long Id { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+
+        public enum Tipo { Administrador, Funcionario }
     }
-    public class UsuarioDBContext : DbContext
-    {
-
-        public DbSet<Usuario> Usuarios { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            base.OnModelCreating(modelBuilder);
-        }
-    }
-
 }

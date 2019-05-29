@@ -73,3 +73,6 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+
+Stockontroll/Web.config
+.vs/Stockontroll/v15/Server/sqlite3/db.lock
