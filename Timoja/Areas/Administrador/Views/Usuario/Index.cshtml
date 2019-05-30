@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Stockontroll.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrador/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mb-3">
+    <div class="col">
+        <h2>Usuários</h2>
+    </div>
+    <div class="col text-right">
+        <a href="@Url.Action("Create", "Usuario")" class="btn btn-primary">Adicionar</a>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+
+</table>
