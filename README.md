@@ -5,8 +5,10 @@
 - <b>FUNCIONALIDADES</b>: 
     - CRUD Funcionários [area de ADM].
     - CRUD Fornecedores [area de ADM].
-    - CRUD Produtos [area de Func].
+    - CRUD Produtos [area de ADM].
+- <b>Ecommerce Website:</b> Timoja
 <br>
+
 
 ## 🚀 Design Ideas: 
 - <b>TEMA: ESCURO!</b> Ninguém gosta de claridade.
