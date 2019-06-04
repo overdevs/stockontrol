@@ -37,11 +37,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.enderecoId)
+            @Html.DisplayNameFor(model => model.Endereco)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.enderecoId)
+            @Html.DisplayFor(model => model.Endereco)
         </dd>
 
     </dl>
@@ -50,7 +50,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
