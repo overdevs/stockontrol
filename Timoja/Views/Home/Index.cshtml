@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Stockontroll.Models.Produto>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -58,13 +59,47 @@
                     <h6 class="font-light">resultados da pesquisa</h6>
 
                     <div class="products">
+
+                        @foreach (var item in Model)
+                        {
+                            <!-- START Product Example Usage -->
+                            <figure class="product">
+                                <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
+                                <figcaption class="product-body">
+                                    <h3 class="product-name">@Html.DisplayFor(model => item.Nome)</h3>
+
+                                    <h5 class="product-price">R$ @Html.DisplayFor(model => item.Preco)</h5>
+                                    <h5 class="product-price">ou <small>10x</small> R$  @Html.DisplayFor(model => item.Preco)</h5>
+
+                                    <div class="text-right">
+                                        <button class="btn btn-sm btn-default">
+                                            ver mais
+                                        </button>
+                                        <button class="btn btn-sm btn-primary">
+                                            <em class="fas fa-shopping-cart"></em>
+                                        </button>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            <!-- END Product Example Usage -->
+                        }
+                        </div>
+                </div>
+
+                <h3 class="section-title">Produtos em destaque</h3>
+
+                <div class="products">
+
+                    @foreach (var item in Model)
+                    {
                         <!-- START Product Example Usage -->
                         <figure class="product">
                             <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
                             <figcaption class="product-body">
-                                <h3 class="product-name">Tênis Queen's Feminino</h3>
-                                <h5 class="product-price">R$ 340.90</h5>
-                                <h5 class="product-price">ou <small>10x</small> R$ 34.09</h5>
+                                <h3 class="product-name">@Html.DisplayFor(model => item.Nome)</h3>
+
+                                <h5 class="product-price">R$ @Html.DisplayFor(model => item.Preco)</h5>
+                                <h5 class="product-price">ou <small>10x</small> R$  @Html.DisplayFor(model => item.Preco)</h5>
 
                                 <div class="text-right">
                                     <button class="btn btn-sm btn-default">
@@ -77,33 +112,7 @@
                             </figcaption>
                         </figure>
                         <!-- END Product Example Usage -->
-
-                    </div>
-                </div>
-
-                <h3 class="section-title">Mais pesquisados</h3>
-
-                <div class="products">
-                    <!-- START Product Example Usage -->
-                    <figure class="product">
-                        <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
-                        <figcaption class="product-body">
-                            <h3 class="product-name">Tênis Queen's Feminino</h3>
-                            <h5 class="product-price">R$ 340.90</h5>
-                            <h5 class="product-price">ou <small>10x</small> R$ 34.09</h5>
-
-                            <div class="text-right">
-                                <button class="btn btn-sm btn-default">
-                                    ver mais
-                                </button>
-                                <button class="btn btn-sm btn-primary">
-                                    <em class="fas fa-shopping-cart"></em>
-                                </button>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <!-- END Product Example Usage -->
-
+                    }
                 </div>
 
             </div>
