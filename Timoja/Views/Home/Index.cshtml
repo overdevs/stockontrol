@@ -44,38 +44,41 @@
                 </ul>
             </div>
             <div class="col-sm-9">
+                <div class="mb-5">
+                    <h3 class="section-title">Novidades</h3>
+                    <div class="products">
 
-                <h3 class="section-title">Novidades</h3>
-                <div class="products mb-5">
+                        @foreach (var item in Model)
+                        {
+                            <!-- START Product Example Usage -->
+                            <figure class="product">
+                                <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
+                                <figcaption class="product-body">
+                                    <h4 class="product-name">@Html.DisplayFor(model => item.Nome)</h4>
 
-                    @foreach (var item in Model.OrderByDescending(p => p.Id))
-                    {
-                        <!-- START Product Example Usage -->
-                        <figure class="product">
-                            <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
-                            <figcaption class="product-body">
-                                <h4 class="product-name">@Html.DisplayFor(model => item.Nome)</h4>
+                                    @{
+                                        float preco = item.Preco;
 
-                                @{
-                                    float preco = item.Preco;
-                                    float parcela = item.Preco / 10;
-                                    parcela.ToString("F2");
-                                }
-                                <h5 class="product-price">R$@(preco)</h5>
-                                <h5 class="product-price">ou <small>10x</small> R$@(parcela)</h5>
-                                <div class="text-right">
-                                    <button class="btn btn-sm btn-default" title="Ver mais informações">
-                                        ver mais
-                                    </button>
-                                    <button class="btn btn-sm btn-primary" title="Adicionar ao carrinho">
-                                        <em class="fas fa-shopping-cart"></em>
-                                    </button>
-                                </div>
-                            </figcaption>
-                        </figure>
-                        <!-- END Product Example Usage -->
-                    }
+                                        double parcela = (item.Preco / 10);
+                                        double valorParcela = Math.Round(parcela, 2);
+                                    }
+                                    <h5 class="product-price">R$@(preco)</h5>
+                                    <h5 class="product-price">ou <small>10x</small> R$@(valorParcela)</h5>
+                                    <div class="text-right">
+                                        <button class="btn btn-sm btn-default">
+                                            ver mais
+                                        </button>
+                                        <button class="btn btn-sm btn-primary">
+                                            <em class="fas fa-shopping-cart"></em>
+                                        </button>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            <!-- END Product Example Usage -->
+                        }
+                    </div>
                 </div>
+
 
 
                 <div class="mb-2">

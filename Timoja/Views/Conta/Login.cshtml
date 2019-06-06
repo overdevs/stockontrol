@@ -1,4 +1,5 @@
-﻿
+﻿@model Stockontroll.Models.Usuario
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -11,24 +12,47 @@
         <h2>Entre com sua conta</h2>
         <div class="row">
             <div class="col-sm-6">
-                <form class="mb-4">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email@exemplo.com">
-                        <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com alguém</small>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h2>Cadastro</h2>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+                                <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com alguém</small>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Entrar" class="btn btn-primary" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="senha">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-sm">Entrar</button>
-                </form>
+                }
+
             </div>
             <div class="col-sm-6">
 
                 <h6>
                     Ainda não tem uma conta?
-                    <a href="@Url.Action("Cadastro", "Conta")" >Cadastre-se aqui</a>
+                    <a href="@Url.Action("Cadastro", "Conta")">Cadastre-se aqui</a>
                 </h6>
             </div>
         </div>
