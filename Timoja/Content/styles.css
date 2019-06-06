@@ -136,44 +136,15 @@ h1, h2, h3, h4, h5, h6{
     text-transform: uppercase;
 }
 
-/* Utils */
-
-.img-fluid{
-    max-width: 100%;
-    height: auto;
-}
-.sr-only{
-    display: none !important;
-}
 /* Buttons */
 .btn {
-    padding: 1rem 2rem;
-    border: none;
     font-weight: bold;
     letter-spacing: 2px;
     transition: 0.3s all;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
-.btn-sm{
-    padding: 0.5rem 1rem;
-}
-.btn-rounded{
-    border-radius: 1rem;
-}
-.btn-default{
-    background: #fff;
-    color: #000;
-}
-.btn-primary{
-    background: rgb(255, 95, 95);
-    color: #fff;
-}
 
-.btn-primary:hover{
-    color: rgb(255, 95, 95);
-    background: #fff;
-}
 
 /* Acordion */
 /* TODO: Acordion */

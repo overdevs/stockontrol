@@ -15,7 +15,7 @@
             perspiciatis esse facilis sunt repellat architecto in molestiae quos a quam reiciendis aspernatur
             dolores excepturi ea.
         </p>
-        <button class="btn btn-primary">SHOP NOW</button>
+        <button class="btn btn-primary btn-lg">SHOP NOW</button>
     </div>
 </section>
 
@@ -28,28 +28,62 @@
                 <ul class="categories">
                     <a class="category">
                         <li>
-                            <em class="fas fa-chevron-right"></em>Camisas
+                            <em class="fas fa-chevron-right"></em> Roupas
                         </li>
                     </a>
                     <a class="category">
                         <li>
-                            <em class="fas fa-chevron-right"></em>Sapatos
+                            <em class="fas fa-chevron-right"></em> Calçados
                         </li>
                     </a>
                     <a class="category">
                         <li>
-                            <em class="fas fa-chevron-right"></em>Jaquetas
+                            <em class="fas fa-chevron-right"></em> Bijouterias
                         </li>
                     </a>
                 </ul>
             </div>
             <div class="col-sm-9">
+
+                <h3 class="section-title">Novidades</h3>
+                <div class="products mb-5">
+
+                    @foreach (var item in Model.OrderByDescending(p => p.Id))
+                    {
+                        <!-- START Product Example Usage -->
+                        <figure class="product">
+                            <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
+                            <figcaption class="product-body">
+                                <h4 class="product-name">@Html.DisplayFor(model => item.Nome)</h4>
+
+                                @{
+                                    float preco = item.Preco;
+                                    float parcela = item.Preco / 10;
+                                    parcela.ToString("F2");
+                                }
+                                <h5 class="product-price">R$@(preco)</h5>
+                                <h5 class="product-price">ou <small>10x</small> R$@(parcela)</h5>
+                                <div class="text-right">
+                                    <button class="btn btn-sm btn-default" title="Ver mais informações">
+                                        ver mais
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" title="Adicionar ao carrinho">
+                                        <em class="fas fa-shopping-cart"></em>
+                                    </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <!-- END Product Example Usage -->
+                    }
+                </div>
+
+
                 <div class="mb-2">
                     <h3 class="section-title">Procure por peças</h3>
                     <div class="custom-input-group">
                         <input class="input" type="text">
                         <div class="input-icon">
-                            <button>
+                            <button title="Clique para Pesquisar">
                                 <em class="fas fa-search"></em>
                             </button>
                         </div>
@@ -66,11 +100,16 @@
                             <figure class="product">
                                 <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
                                 <figcaption class="product-body">
-                                    <h3 class="product-name">@Html.DisplayFor(model => item.Nome)</h3>
+                                    <h4 class="product-name">@Html.DisplayFor(model => item.Nome)</h4>
 
-                                    <h5 class="product-price">R$ @Html.DisplayFor(model => item.Preco)</h5>
-                                    <h5 class="product-price">ou <small>10x</small> R$  @Html.DisplayFor(model => item.Preco)</h5>
+                                    @{
+                                        float preco = item.Preco;
 
+                                        double parcela = (item.Preco / 10);
+                                        double valorParcela = Math.Round(parcela, 2);
+                                    }
+                                    <h5 class="product-price">R$@(preco)</h5>
+                                    <h5 class="product-price">ou <small>10x</small> R$@(valorParcela)</h5>
                                     <div class="text-right">
                                         <button class="btn btn-sm btn-default">
                                             ver mais
@@ -83,36 +122,7 @@
                             </figure>
                             <!-- END Product Example Usage -->
                         }
-                        </div>
-                </div>
-
-                <h3 class="section-title">Produtos em destaque</h3>
-
-                <div class="products">
-
-                    @foreach (var item in Model)
-                    {
-                        <!-- START Product Example Usage -->
-                        <figure class="product">
-                            <img src="~/Content/images/tenis.jpg" class="img-fluid" alt="product">
-                            <figcaption class="product-body">
-                                <h3 class="product-name">@Html.DisplayFor(model => item.Nome)</h3>
-
-                                <h5 class="product-price">R$ @Html.DisplayFor(model => item.Preco)</h5>
-                                <h5 class="product-price">ou <small>10x</small> R$  @Html.DisplayFor(model => item.Preco)</h5>
-
-                                <div class="text-right">
-                                    <button class="btn btn-sm btn-default">
-                                        ver mais
-                                    </button>
-                                    <button class="btn btn-sm btn-primary">
-                                        <em class="fas fa-shopping-cart"></em>
-                                    </button>
-                                </div>
-                            </figcaption>
-                        </figure>
-                        <!-- END Product Example Usage -->
-                    }
+                    </div>
                 </div>
 
             </div>
