@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<Stockontroll.Models.Fornecedor>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Administrador/Views/Shared/_Layout.cshtml";
-}
 
+}
 <div class="row mb-3">
     <div class="col">
         <h2>Fornecedores</h2>
@@ -13,7 +12,6 @@
         <a href="@Url.Action("Create", "Fornecedor")" class="btn btn-primary">Adicionar</a>
     </div>
 </div>
-
 <table class="table">
     <tr>
         <th>#</th>
@@ -27,20 +25,19 @@
             @Html.DisplayNameFor(model => model.Telefone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.enderecoId)
+            @Html.DisplayNameFor(model => model.Endereco)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Id)
         </td>
         <td>
-            <a href="@Url.Action("Details", "Fornecedor", new { id = item.Id })">
-                @Html.DisplayFor(modelItem => item.Nome)
-            </a>
+            @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CNPJ)
@@ -49,7 +46,7 @@
             @Html.DisplayFor(modelItem => item.Telefone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.enderecoId)
+            @Html.DisplayFor(modelItem => item.Endereco)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -57,6 +54,6 @@
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
-}
+    }
 
 </table>
