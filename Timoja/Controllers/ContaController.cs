@@ -68,6 +68,11 @@ namespace Timoja.Controllers
                     if (resultQuery[0].Tipo == 0)
                     {
                         Console.WriteLine("User comum!");
+
+                        // Criando o carrinho.
+                        List<Produto> listaCarrinho = new List<Produto>();
+                        Session["carrinho"] = listaCarrinho;
+
                         return RedirectToAction("Index", "Home");
                     }
                     // Se for um ADM.
