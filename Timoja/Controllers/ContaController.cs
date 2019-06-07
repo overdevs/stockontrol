@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -47,9 +48,12 @@ namespace Timoja.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "Email, Senha")] Usuario usuario)
         {
+            // Se o formato do objeto estiver correto.
             if (ModelState.IsValid)
             {
+                // Pegando o resultado do login.
                 List<Usuario> resultQuery = db.Usuarios.ToList().FindAll(u => (u.Email == usuario.Email) && (u.Senha == usuario.Senha));
+                
                 if (resultQuery.Count == 1)
                 {
                     Session["id"] = resultQuery[0].Id;
@@ -58,7 +62,22 @@ namespace Timoja.Controllers
                     Session["tipo"] = resultQuery[0].Tipo;
                     Session["usuario"] = resultQuery[0];
 
-                    return RedirectToAction("Index", "Home");
+                    // Se for um user comum.
+                    if (resultQuery[0].Tipo == 0)
+                    {
+                        Console.WriteLine("User comum!");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    // Se for um ADM.
+                    else
+                    {
+                        Console.WriteLine("Administrador!");
+                        return RedirectToAction("Index", "Home", new { area = "Administrador" });
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum usuário foi encontrado.");
                 }
             }
             return View(usuario);
