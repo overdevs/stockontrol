@@ -79,7 +79,7 @@ namespace Timoja.Controllers
                 }
                 else
                 {
-                    Console.WriteLine("Nenhum usuário foi encontrado.");
+                    TempData["error"] = "Ocorreu um erro ao entrar! Verifique se seus dados estão corretos.";
                 }
             }
             return View(usuario);
