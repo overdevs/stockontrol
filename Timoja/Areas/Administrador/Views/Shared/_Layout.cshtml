@@ -1,4 +1,9 @@
-﻿
+﻿@using Stockontroll.DAO;
+@using Stockontroll.Models;
+
+@{
+    Usuario user = (Usuario)Session["Usuario"];
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +40,8 @@
                     </div>
                     <div class="user-info">
                         <span class="user-name">
-                            João
-                            <strong>Alves</strong>
+                            @user.Nome
+                            <strong>@user.Sobrenome</strong>
                         </span>
                         <span class="user-role">Administrator</span>
                         <span class="user-status">

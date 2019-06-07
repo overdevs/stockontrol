@@ -59,6 +59,8 @@ namespace Timoja.Controllers
                     Session["id"] = resultQuery[0].Id;
                     Session["email"] = resultQuery[0].Email;
                     Session["senha"] = resultQuery[0].Senha;
+                    Session["nome"] = resultQuery[0].Nome;
+                    Session["sobrenome"] = resultQuery[0].Sobrenome;
                     Session["tipo"] = resultQuery[0].Tipo;
                     Session["usuario"] = resultQuery[0];
 

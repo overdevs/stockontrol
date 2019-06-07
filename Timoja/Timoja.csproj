@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201906042032347_fixFornecedor.Designer.cs">
       <DependentUpon>201906042032347_fixFornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906071650006_changingUser.cs" />
+    <Compile Include="Migrations\201906071650006_changingUser.Designer.cs">
+      <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -267,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906042032347_fixFornecedor.resx">
       <DependentUpon>201906042032347_fixFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906071650006_changingUser.resx">
+      <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
