@@ -22,6 +22,12 @@ namespace Timoja.Controllers
             return View();
         }
 
+        public ActionResult Sair()
+        {
+            Session["usuario"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Cadastro([Bind(Include = "Id,Email,Senha")] Usuario usuario)
@@ -70,7 +76,7 @@ namespace Timoja.Controllers
                         Console.WriteLine("User comum!");
 
                         // Criando o carrinho.
-                        List<Produto> listaCarrinho = new List<Produto>();
+                        List<Item> listaCarrinho = new List<Item>();
                         Session["carrinho"] = listaCarrinho;
 
                         return RedirectToAction("Index", "Home");

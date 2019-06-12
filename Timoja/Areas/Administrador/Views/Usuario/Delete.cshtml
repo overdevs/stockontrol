@@ -5,13 +5,29 @@
     Layout = "~/Areas/Administrador/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Apagando Usuário</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Confirmação de exclusão</h3>
+<hr />
+
 <div>
-    <h4>Usuario</h4>
-    <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
@@ -38,11 +54,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Apagar" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

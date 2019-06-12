@@ -18,7 +18,7 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            return View(db.Usuarios.ToList().FindAll(u => u.Tipo == 1));
         }
 
         // GET: Administrador/Usuario/Details/5
@@ -47,7 +47,7 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email,Senha,Tipo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Email,Senha,Tipo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

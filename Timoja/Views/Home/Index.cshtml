@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Stockontroll.Models.Produto>
-
+@using System;
+@using Stockontroll.Models;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -47,6 +48,9 @@
                 <div class="mb-5">
                     <h3 class="section-title">Novidades</h3>
                     <div class="products">
+                        @{
+                            Usuario user = (Usuario) Session["Usuario"];
+                        }
 
                         @foreach (var item in Model)
                         {
@@ -68,9 +72,17 @@
                                         <button class="btn btn-sm btn-default">
                                             ver mais
                                         </button>
-                                        <button class="btn btn-sm btn-primary">
+                                        @if (user != null)
+                                        {
+                                        <a href="@Url.Action("Adicionar", "Carrinho", new { id = item.Id })" class="btn btn-sm btn-primary">
                                             <em class="fas fa-shopping-cart"></em>
-                                        </button>
+                                        </a>
+                                        } else { 
+                                        <a href="@Url.Action("Login", "Conta")" class="btn btn-sm btn-primary">
+                                            <em class="fas fa-shopping-cart"></em>
+                                        </a>
+                                        }
+                                        <br />
                                     </div>
                                 </figcaption>
                             </figure>
@@ -117,9 +129,19 @@
                                         <button class="btn btn-sm btn-default">
                                             ver mais
                                         </button>
-                                        <button class="btn btn-sm btn-primary">
-                                            <em class="fas fa-shopping-cart"></em>
-                                        </button>
+                                        @if (user != null)
+                                        {
+                                            <a href="@Url.Action("Adicionar", "Carrinho", new { id = item.Id })" class="btn btn-sm btn-primary">
+                                                <em class="fas fa-shopping-cart"></em>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("Login", "Conta")" class="btn btn-sm btn-primary">
+                                                <em class="fas fa-shopping-cart"></em>
+                                            </a>
+                                        }
+                                        <br />
                                     </div>
                                 </figcaption>
                             </figure>

@@ -38,24 +38,28 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="@Url.Action("Index", "Home")">Início <span class="sr-only">(current)</span></a>
                     </li>
+                    @{
+                        Usuario user = (Usuario) Session["usuario"];
+                    }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Conta
+
+                            @(user != null ? user.Nome : "Conta")
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @{
-                                Usuario user = (Usuario)Session["Usuario"];
-                            }
+
                             @if (Session["usuario"] != null)
                             {
 
-                                <a class="dropdown-item" href="@Url.Action("MinhaConta", "Conta")">Minha Conta (@user.Email)</a>
-                                <a class="dropdown-item" href="@Url.Action(" Index", "Carrinho" )">
+                                <a class="dropdown-item" href="@Url.Action("MinhaConta", "Conta")">Minha Conta</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Carrinho" )">
                                     <em class="fas fa-shopping-cart"></em> Carrinho
                                 </a>
+                                <a class="dropdown-item" href="@Url.Action("Sair", "Conta")">Sair</a>
 
                                 if (user.Tipo != 0)
                                 {
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="@Url.Action("Index", "Home", new { area = "Administrador" })">
                                         <em class="fas fa-lock"></em> Administrador
                                     </a>
