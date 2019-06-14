@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201906071650006_changingUser.Designer.cs">
       <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906141925376_addColumns.cs" />
+    <Compile Include="Migrations\201906141925376_addColumns.Designer.cs">
+      <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Item.cs" />
@@ -241,6 +245,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Home\Pesquisa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906071650006_changingUser.resx">
       <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141925376_addColumns.resx">
+      <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

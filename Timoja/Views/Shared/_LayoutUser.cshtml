@@ -36,10 +36,13 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("Index", "Home")">Início <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action(" Index", "Home" )">Início <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Pesquisa", "Home")">Pesquisar </a>
                     </li>
                     @{
-                        Usuario user = (Usuario) Session["usuario"];
+                        Usuario user = (Usuario)Session["usuario"];
                     }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

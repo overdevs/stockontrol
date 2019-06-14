@@ -19,6 +19,20 @@ namespace Timoja.Controllers
         {
             return View(db.Produtos.ToList());
         }
+
+        public ActionResult Pesquisa()
+        {
+            return View(db.Produtos.ToList());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Pesquisa([Bind(Include = "Nome")] Produto produto)
+        {
+            List<Produto> produtos = db.Produtos.ToList();
+            List<Produto> results = produtos.FindAll(p => p.Nome.Contains(produto.Nome));
+            return View(results);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

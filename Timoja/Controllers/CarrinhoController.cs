@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Stockontroll.Models;
 using Stockontroll.DAO;
+using System.Data.Entity;
 
 namespace Timoja.Controllers
 {
@@ -77,6 +78,28 @@ namespace Timoja.Controllers
 
             return RedirectToAction("Index", "Carrinho");
         }
+        public ActionResult Checkout()
+        {
+            List<Item> carrinho = (List<Item>)Session["carrinho"];
 
+            foreach (var item in carrinho)
+            {
+                Produto p = db.Produtos.Find(item.produto.Id);
+                if (p.Quantidade == item.quantidade)
+                {
+                    db.Produtos.Remove(p);
+                    db.SaveChanges();
+                }
+                else if (p.Quantidade > item.quantidade)
+                {
+                    p.Quantidade -= item.quantidade;
+                    db.Entry(p).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                Session["carrinho"] = null;
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

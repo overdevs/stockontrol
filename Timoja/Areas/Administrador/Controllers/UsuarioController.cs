@@ -47,10 +47,11 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                usuario.Tipo = 1;
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +80,7 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
