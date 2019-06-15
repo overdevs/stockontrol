@@ -18,7 +18,9 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList().FindAll(u => u.Tipo == 1));
+            List<Usuario> retorno = db.Usuarios.ToList().FindAll(u => u.Tipo == 1);
+            List<Usuario> retornoOld = db.Usuarios.ToList();
+            return View(retornoOld);
         }
 
         // GET: Administrador/Usuario/Details/5
@@ -52,9 +54,15 @@ namespace Timoja.Areas.Administrador.Controllers
             if (ModelState.IsValid)
             {
                 usuario.Tipo = 1;
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Usuarios.ToList().FindAll(f => f.Email.Equals(usuario.Email, StringComparison.OrdinalIgnoreCase)).Count == 0) {
+                    db.Usuarios.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
             }
 
             return View(usuario);
@@ -84,6 +92,8 @@ namespace Timoja.Areas.Administrador.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                usuario.Tipo = 1;
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
