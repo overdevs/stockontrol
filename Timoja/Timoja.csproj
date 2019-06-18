@@ -156,6 +156,7 @@
     <Content Include="Areas\Administrador\Views\Usuario\Details.cshtml" />
     <Content Include="Areas\Administrador\Views\Usuario\Edit.cshtml" />
     <Content Include="Areas\Administrador\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -195,6 +196,7 @@
     <Compile Include="Areas\Administrador\AdministradorAreaRegistration.cs" />
     <Compile Include="Areas\Administrador\Controllers\FornecedorController.cs" />
     <Compile Include="Areas\Administrador\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administrador\Controllers\LoginController.cs" />
     <Compile Include="Areas\Administrador\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Administrador\Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
@@ -251,6 +253,8 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IProduto.cs" />
+    <Compile Include="Repository\ProdutoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -259,6 +263,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Carrinho\Index.cshtml" />
     <Content Include="Views\Home\Pesquisa.cshtml" />
+    <Content Include="Views\Home\Produto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

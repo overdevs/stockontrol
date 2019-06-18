@@ -1,0 +1,69 @@
+﻿@model Stockontroll.Models.Produto
+@using Stockontroll.Models;
+@{
+    ViewBag.Title = "Produto";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="container">
+    <h2>Produto</h2>
+
+    @{
+        var item = Model;
+    }
+
+    <figure>
+        <div class="row">
+            <div class="col-sm-6">
+
+                <h6>No estoque: @item.Quantidade</h6>
+                <img src="~/Content/images/tenis.jpg" class="img-fluid p-5" alt="product">
+            </div>
+            <div class="col-sm-6">
+
+                <figcaption class="product-body">
+                    <h3 class="product-name">@Html.DisplayFor(model => item.Nome)</h3>
+                    @{
+                        float preco = item.Preco;
+
+                        double parcela = (item.Preco / 10);
+                        parcela = Math.Truncate(parcela * 100) / 100;
+                    }
+                    <hr />
+                    
+                    <h3>
+                        <span class="badge badge-info">@item.Categoria</span>
+                    </h3>
+
+                    <div class="my-4">
+                        <h5><strong>Marca:</strong> @item.Marca</h5>
+                        <h5><strong>Cor:</strong> @item.Cor</h5>
+                    </div>
+                    <div class="my-4">
+                        <h5><strong>Preço:</strong></h5>
+                        <h2 class="text-center display-4"> R$ @(preco)</h2>
+                        <h4 class="text-center">ou <small>10x</small> R$ @(parcela)</h4>
+
+                    </div>
+                    <hr />
+                    <div class="text-right">
+                        @{
+                            Usuario user = (Usuario)Session["Usuario"];
+                        }
+                        @if (user != null)
+                        {
+                            <a href="@Url.Action("Adicionar", "Carrinho", new { id = item.Id })" class="btn btn-lg btn-primary">
+                                <em class="fas fa-shopping-cart"></em> Carrinho
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Conta")" class="btn btn-lg btn-primary">
+                                <em class="fas fa-shopping-cart"></em> Carrinho
+                            </a>
+                        }
+                    </div>
+                </figcaption>
+            </div>
+        </div>
+    </figure>
+</div>

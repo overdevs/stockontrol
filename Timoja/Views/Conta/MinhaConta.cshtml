@@ -1,8 +1,28 @@
-﻿
+﻿@using Stockontroll.Models
 @{
     ViewBag.Title = "MinhaConta";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+<div class="container">
+    <h2 class="mb-4">MinhaConta</h2>
 
-<h2>MinhaConta</h2>
+    @{
+        Usuario user = (Usuario)Session["Usuario"];
+    }
+
+
+    <div class="my-3">
+        <h3>Nome:</h3>
+        <h5>@user.Nome</h5>
+    </div>
+    <div class="my-3">
+        <h3>Sobrenome:</h3>
+        <h5>@user.Sobrenome</h5>
+    </div>
+    <div class="my-3">
+        <h3>Email:</h3>
+        <h5>@user.Email</h5>
+    </div>
+
+</div>
 

@@ -18,12 +18,20 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Produto
         public ActionResult Index()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.Produtos.ToList());
         }
 
         // GET: Administrador/Produto/Details/5
         public ActionResult Details(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Produto/Create
         public ActionResult Create()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -49,6 +61,10 @@ namespace Timoja.Areas.Administrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Nome,Categoria,Marca,Preco,Quantidade,Cor,Tamanho,fornecedorId")] Produto produto)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Produtos.Add(produto);
@@ -62,6 +78,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Produto/Edit/5
         public ActionResult Edit(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,6 +101,10 @@ namespace Timoja.Areas.Administrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,Categoria,Marca,Preco,Quantidade,Cor,Tamanho,fornecedorId")] Produto produto)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(produto).State = EntityState.Modified;
@@ -93,6 +117,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Produto/Delete/5
         public ActionResult Delete(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,6 +138,10 @@ namespace Timoja.Areas.Administrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             Produto produto = db.Produtos.Find(id);
             db.Produtos.Remove(produto);
             db.SaveChanges();

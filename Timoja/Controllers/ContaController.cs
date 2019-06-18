@@ -72,31 +72,16 @@ namespace Timoja.Controllers
                 if (resultQuery.Count == 1)
                 {
                     /// ILL UPDATE FROM HERE.
-                    Session["id"] = resultQuery[0].Id;
-                    Session["email"] = resultQuery[0].Email;
-                    Session["senha"] = resultQuery[0].Senha;
-                    Session["nome"] = resultQuery[0].Nome;
-                    Session["sobrenome"] = resultQuery[0].Sobrenome;
-                    Session["tipo"] = resultQuery[0].Tipo;
                     Session["usuario"] = resultQuery[0];
 
-                    // Se for um user comum.
-                    if (resultQuery[0].Tipo == 0)
-                    {
-                        Console.WriteLine("User comum!");
+                    Console.WriteLine("User comum!");
 
-                        // Criando o carrinho.
-                        List<Item> listaCarrinho = new List<Item>();
-                        Session["carrinho"] = listaCarrinho;
+                    // Criando o carrinho.
+                    List<Item> listaCarrinho = new List<Item>();
+                    Session["carrinho"] = listaCarrinho;
 
-                        return RedirectToAction("Index", "Home");
-                    }
-                    // Se for um ADM.
-                    else
-                    {
-                        Console.WriteLine("Administrador!");
-                        return RedirectToAction("Index", "Home", new { area = "Administrador" });
-                    }
+                    return RedirectToAction("Index", "Home");
+                    
                 }
                 else
                 {

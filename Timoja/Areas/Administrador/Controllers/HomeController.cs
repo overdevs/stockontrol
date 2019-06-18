@@ -11,6 +11,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Home
         public ActionResult Index()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
     }

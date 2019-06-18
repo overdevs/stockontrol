@@ -18,14 +18,22 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario
         public ActionResult Index()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             List<Usuario> retorno = db.Usuarios.ToList().FindAll(u => u.Tipo == 1);
-            List<Usuario> retornoOld = db.Usuarios.ToList();
-            return View(retornoOld);
+            List<Usuario> retornoAll = db.Usuarios.ToList();
+            return View(retorno);
         }
 
         // GET: Administrador/Usuario/Details/5
         public ActionResult Details(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +49,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario/Create
         public ActionResult Create()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -71,6 +83,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario/Edit/5
         public ActionResult Edit(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -104,6 +120,10 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario/Delete/5
         public ActionResult Delete(long? id)
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

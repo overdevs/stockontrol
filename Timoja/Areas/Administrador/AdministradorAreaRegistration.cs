@@ -17,7 +17,7 @@ namespace Timoja.Areas.Administrador
             context.MapRoute(
                 "Administrador_default",
                 "Administrador/{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new { controller = "Login", action = "Index", id = UrlParameter.Optional },
                 namespaces: new []{ "Timoja.Areas.Administrador.Controllers"}
             );
         }

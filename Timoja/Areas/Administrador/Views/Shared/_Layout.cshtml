@@ -2,7 +2,7 @@
 @using Stockontroll.Models;
 
 @{
-    Usuario session = (Usuario)Session["Usuario"];
+    Usuario session = (Usuario)Session["admin"];
     Administrador user = new Administrador {
         Id = session.Id,
         Nome = session.Nome,
@@ -88,6 +88,13 @@
                             <a href="/" target="_blank">
                                 <i class="fas fa-lock"></i>
                                 <span>Visualizar Site</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Logout", "Login")">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
                             </a>
                         </li>
                     </ul>
