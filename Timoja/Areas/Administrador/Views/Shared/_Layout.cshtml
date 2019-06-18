@@ -2,7 +2,12 @@
 @using Stockontroll.Models;
 
 @{
-    Usuario user = (Usuario)Session["Usuario"];
+    Usuario session = (Usuario)Session["Usuario"];
+    Administrador user = new Administrador {
+        Id = session.Id,
+        Nome = session.Nome,
+        Sobrenome = session.Sobrenome
+    };
 }
 <!DOCTYPE html>
 <html>

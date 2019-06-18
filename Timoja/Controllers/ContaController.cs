@@ -71,6 +71,7 @@ namespace Timoja.Controllers
                 
                 if (resultQuery.Count == 1)
                 {
+                    /// ILL UPDATE FROM HERE.
                     Session["id"] = resultQuery[0].Id;
                     Session["email"] = resultQuery[0].Email;
                     Session["senha"] = resultQuery[0].Senha;

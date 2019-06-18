@@ -232,7 +232,17 @@
     <Compile Include="Migrations\201906141925376_addColumns.Designer.cs">
       <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906180035440_fix.cs" />
+    <Compile Include="Migrations\201906180035440_fix.Designer.cs">
+      <DependentUpon>201906180035440_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906180042504_fixAgain.cs" />
+    <Compile Include="Migrations\201906180042504_fixAgain.Designer.cs">
+      <DependentUpon>201906180042504_fixAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Administrador.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -283,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906141925376_addColumns.resx">
       <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906180035440_fix.resx">
+      <DependentUpon>201906180035440_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906180042504_fixAgain.resx">
+      <DependentUpon>201906180042504_fixAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
