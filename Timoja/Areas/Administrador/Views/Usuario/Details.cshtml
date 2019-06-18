@@ -12,21 +12,28 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Tipo)
         </dt>

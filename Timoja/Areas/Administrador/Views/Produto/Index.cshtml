@@ -36,6 +36,12 @@
             @Html.DisplayNameFor(model => model.Quantidade)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </th>
+        <th>
             Fornecedor
         </th>
         <th></th>
@@ -43,42 +49,49 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                <a href="@Url.Action("Details", "Produto", new { id = item.Id })">
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            <a href="@Url.Action("Details", "Produto", new { id = item.Id })">
+                @Html.DisplayFor(modelItem => item.Nome)
+            </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
 
-                @{
-                    Fornecedor fornecedor = db.Fornecedores.ToList().Find( f => f.Id == item.fornecedorId );
-                    string forn = fornecedor.Nome;
-                }
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tamanho)
+        </td>
+        <td>
 
-                @forn
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+            @{
+                Fornecedor fornecedor = db.Fornecedores.ToList().Find(f => f.Id == item.fornecedorId);
+                string forn = fornecedor.Nome;
+            }
+
+            @forn
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Apagar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
     }
 
 </table>

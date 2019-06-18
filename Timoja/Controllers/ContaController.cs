@@ -22,18 +22,33 @@ namespace Timoja.Controllers
             return View();
         }
 
+        public ActionResult Sair()
+        {
+            Session["usuario"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastro([Bind(Include = "Id,Email,Senha")] Usuario usuario)
+        public ActionResult Cadastro([Bind(Include = "Id,Nome,Sobrenome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 // Configurando como Usuário Cmomum
                 usuario.Tipo = 0;
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
+                
+                if (db.Usuarios.ToList().FindAll(f => f.Email.Equals(usuario.Email, StringComparison.OrdinalIgnoreCase)).Count == 0)
+                {
+                    db.Usuarios.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Cadastro");
+                }
 
-                return RedirectToAction("Index", "Home");
+                
             }
 
             return View(usuario);
@@ -70,7 +85,7 @@ namespace Timoja.Controllers
                         Console.WriteLine("User comum!");
 
                         // Criando o carrinho.
-                        List<Produto> listaCarrinho = new List<Produto>();
+                        List<Item> listaCarrinho = new List<Item>();
                         Session["carrinho"] = listaCarrinho;
 
                         return RedirectToAction("Index", "Home");

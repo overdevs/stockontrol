@@ -18,7 +18,9 @@ namespace Timoja.Areas.Administrador.Controllers
         // GET: Administrador/Usuario
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            List<Usuario> retorno = db.Usuarios.ToList().FindAll(u => u.Tipo == 1);
+            List<Usuario> retornoOld = db.Usuarios.ToList();
+            return View(retornoOld);
         }
 
         // GET: Administrador/Usuario/Details/5
@@ -47,13 +49,20 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                usuario.Tipo = 1;
+                if (db.Usuarios.ToList().FindAll(f => f.Email.Equals(usuario.Email, StringComparison.OrdinalIgnoreCase)).Count == 0) {
+                    db.Usuarios.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
             }
 
             return View(usuario);
@@ -79,10 +88,12 @@ namespace Timoja.Areas.Administrador.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,Senha,Tipo")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+
+                usuario.Tipo = 1;
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

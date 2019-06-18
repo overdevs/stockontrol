@@ -1,8 +1,12 @@
 ﻿@model Stockontroll.Models.Produto
+@using Stockontroll.DAO;
+@using Stockontroll.Models;
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Administrador/Views/Shared/_Layout.cshtml";
+
+    StockontrolContext db = new StockontrolContext();
 }
 
 <h2>Details</h2>
@@ -36,6 +40,22 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamanho)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Preco)
         </dt>
 
@@ -52,11 +72,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fornecedorId)
+            Fornecedor
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.fornecedorId)
+            @{
+                Fornecedor fornecedor = db.Fornecedores.ToList().Find(f => f.Id == Model.fornecedorId);
+                string forn = fornecedor.Nome;
+            }
+
+            @forn
         </dd>
 
     </dl>

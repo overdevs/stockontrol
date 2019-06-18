@@ -29,9 +29,13 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2">Categoria</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
+            <select class="form-control" name="Categoria">
+                <option>Selecione uma Categoria</option>
+                <option value="Roupas">Roupas</option>
+                <option value="Calçados">Calçados</option>
+            </select>
             @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -45,9 +49,25 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.Cor, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tamanho, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tamanho, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tamanho, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.Preco, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <small class="text-muted">Use vírgula ao invés de ponto para casas decimais (Ex: 89,99)</small>
+            <small class="text-muted">Use vírgula ao invés de ponto para casa decimal (Ex: 89,99)</small>
             @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
         </div>
@@ -60,15 +80,7 @@
             @Html.ValidationMessageFor(model => model.Quantidade, "", new { @class = "text-danger" })
         </div>
     </div>
-    <!--
-    <div class="form-group">
-        @Html.LabelFor(model => model.fornecedorId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.fornecedorId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.fornecedorId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-        -->
+
     <div class="form-group">
         <label class="control-label col-md-2">Fornecedor</label>
         @{List<Fornecedor> f = db.Fornecedores.ToList();}

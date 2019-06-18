@@ -139,11 +139,6 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\Administrador\Views\web.config" />
     <Content Include="Areas\Administrador\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Administrador\Views\Usuario\Create.cshtml" />
-    <Content Include="Areas\Administrador\Views\Usuario\Delete.cshtml" />
-    <Content Include="Areas\Administrador\Views\Usuario\Details.cshtml" />
-    <Content Include="Areas\Administrador\Views\Usuario\Edit.cshtml" />
-    <Content Include="Areas\Administrador\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Administrador\Views\Produto\Create.cshtml" />
     <Content Include="Areas\Administrador\Views\Produto\Delete.cshtml" />
     <Content Include="Areas\Administrador\Views\Produto\Details.cshtml" />
@@ -156,6 +151,11 @@
     <Content Include="Areas\Administrador\Views\Fornecedor\Details.cshtml" />
     <Content Include="Areas\Administrador\Views\Fornecedor\Edit.cshtml" />
     <Content Include="Areas\Administrador\Views\Fornecedor\Index.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Create.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Delete.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Details.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Edit.cshtml" />
+    <Content Include="Areas\Administrador\Views\Usuario\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -228,8 +228,13 @@
     <Compile Include="Migrations\201906071650006_changingUser.Designer.cs">
       <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906141925376_addColumns.cs" />
+    <Compile Include="Migrations\201906141925376_addColumns.Designer.cs">
+      <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Fornecedor.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +245,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Home\Pesquisa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906071650006_changingUser.resx">
       <DependentUpon>201906071650006_changingUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141925376_addColumns.resx">
+      <DependentUpon>201906141925376_addColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
